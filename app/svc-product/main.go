@@ -7,6 +7,7 @@ import (
 
 	"github.com/dewidyabagus/monorepo/app/svc-product/config"
 	"github.com/dewidyabagus/monorepo/datasource/sql"
+	"github.com/dewidyabagus/monorepo/shared-libs/slack"
 	"github.com/labstack/echo/v4"
 )
 
@@ -24,6 +25,9 @@ func main() {
 	}
 	inst, _ := db.DB()
 	defer inst.Close()
+
+	// Example untuk penerapan package shared-libs
+	_ = slack.NewSlackApi(&slack.SlackOption{})
 
 	e := echo.New()
 
