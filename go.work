@@ -1,6 +1,7 @@
 go 1.18
 
 use (
-    ./datasource
-    ./app/svc-product
+	./app/svc-product
+	./datasource
+	./shared-libs
 )

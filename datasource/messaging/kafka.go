@@ -1,5 +1,4 @@
-//mq package untuk kafka, digunakan untuk wrapping library segmentio/go-kafka
-package mq
+package messaging
 
 import (
 	"context"
@@ -8,18 +7,17 @@ import (
 	"sync"
 	"time"
 
+	"github.com/dewidyabagus/monorepo/shared-libs/mstring"
 	kafka "github.com/segmentio/kafka-go"
-	// "bitbucket.org/klopos/svc-inventory/conf"
-	// "bitbucket.org/klopos/svc-inventory/pkg/mstring"
 )
 
 type Kafka struct {
-	Host             string `json:"host,omitempty"`
-	RebalanceTimeout int    `json:"rebalance_timeout,omitempty"`
-	MinBytes         int    `json:"min_bytes,omitempty"`
-	MaxBytes         int    `json:"max_bytes,omitempty"`
-	MaxAttempts      int    `json:"max_attempts,omitempty"`
-	MaxWait          int    `json:"max_wait,omitempty"`
+	Host             string
+	RebalanceTimeout int
+	MinBytes         int
+	MaxBytes         int
+	MaxAttempts      int
+	MaxWait          int
 }
 
 // Indicator to reopen session
